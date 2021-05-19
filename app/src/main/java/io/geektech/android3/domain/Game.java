@@ -30,7 +30,7 @@ public class Game<CardContent> {
     private void checkPairs(Card<CardContent> card) {
         for (Card<CardContent> anotherCard : cards) {
             if (card.isFaceUp() && anotherCard.isFaceUp()) {
-                if (card.getContent() == anotherCard.getContent() && card.getId() != anotherCard.getId()) {
+                if (card.equals(anotherCard) && card.getId() != anotherCard.getId()) {
                     card.setMatched(true);
                     anotherCard.setMatched(true);
                 } else if (!card.equals(anotherCard)){

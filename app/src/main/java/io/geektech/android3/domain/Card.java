@@ -1,6 +1,8 @@
 package io.geektech.android3.domain;
 
 
+import java.util.Objects;
+
 public class Card<CardContent> {
     private int id;
     private boolean isMatched;
@@ -46,6 +48,19 @@ public class Card<CardContent> {
 
     public void setContent(CardContent content) {
         this.content = content;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card<?> card = (Card<?>) o;
+        return Objects.equals(content, card.content);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(content);
     }
 }
 
